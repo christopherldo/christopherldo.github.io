@@ -34,9 +34,9 @@ export const PageArea = styled.main`
     };
 
     .message {
+      padding: 0 20px;
       color: #fff;
       font-size: 50px;
-      height: 100px;
       text-align: center;
 
       &:after {
@@ -76,7 +76,9 @@ export const PageArea = styled.main`
 
       @media(max-width: 900px) {
         grid-column: span 4;
+        justify-content: center;
         align-items: center;
+        padding-bottom: 0;
       };
 
       h1 {
