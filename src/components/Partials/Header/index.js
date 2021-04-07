@@ -5,23 +5,17 @@ import { HeaderArea } from './style';
 
 const Component = () => {
   const location = useLocation();
-  const heightVH = use100vh();
 
   const [path, setPath] = useState('');
   const [displayHamburgerMenu, setDisplayHamburgerMenu] = useState('none');
-  const [menuHeight, setMenuHeight] = useState(0);
 
   useEffect(() => {
     setPath(location.pathname);
     setDisplayHamburgerMenu('none');
   }, [location]);
 
-  useEffect(() => {
-    setMenuHeight(heightVH);
-  }, [heightVH]);
-
   const handleToggleHamburger = () => {
-    if (displayHamburgerMenu === 'none') {
+    if(displayHamburgerMenu === 'none'){
       setDisplayHamburgerMenu('flex');
     } else {
       setDisplayHamburgerMenu('none');
@@ -31,7 +25,7 @@ const Component = () => {
   return (
     <HeaderArea
       displayHamburgerMenu={displayHamburgerMenu}
-      menuHeight={menuHeight}
+      menuHeight={use100vh}
     >
       <div className="container">
         <div className="hamburger--menu" onClick={handleToggleHamburger}>
