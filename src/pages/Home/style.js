@@ -130,6 +130,7 @@ export const PageArea = styled.main`
       grid-column: span 1;
       display: flex;
       padding-top: 20px;
+      padding-left: 2px;
 
       @media(max-width: 768px) {
         flex-flow: column;

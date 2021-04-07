@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom';
+import { use100vh } from 'react-div-100vh';
 import { HeaderArea } from './style';
 
 const Component = () => {
@@ -14,7 +15,7 @@ const Component = () => {
   }, [location]);
 
   const handleToggleHamburger = () => {
-    if(displayHamburgerMenu === 'none'){
+    if (displayHamburgerMenu === 'none') {
       setDisplayHamburgerMenu('flex');
     } else {
       setDisplayHamburgerMenu('none');
@@ -24,6 +25,7 @@ const Component = () => {
   return (
     <HeaderArea
       displayHamburgerMenu={displayHamburgerMenu}
+      menuHeight={use100vh}
     >
       <div className="container">
         <div className="hamburger--menu" onClick={handleToggleHamburger}>
