@@ -88,7 +88,7 @@ export const HeaderArea = styled.header`
           left: 0;
           flex-flow: column;
           border-top: 2px solid #B64FC8;
-          height: calc(${props => props.menuHeight}px - 75px);
+          height: calc(100% - 75px);
           background-color: #1F1F1F;
           min-width: 70%;
           box-shadow: 0 2px 4px rgb(0 0 0 / 50%);
