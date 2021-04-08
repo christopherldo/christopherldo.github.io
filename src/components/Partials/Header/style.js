@@ -10,6 +10,16 @@ const fromLeft = keyframes`
   }
 `;
 
+const fromRight = keyframes`
+  from {
+    left: 0px
+  }
+
+  to {
+    left: -1000px;
+  }
+`;
+
 export const HeaderArea = styled.header`
   width: 100vw;
   background-color: #1F1F1F;
@@ -25,6 +35,21 @@ export const HeaderArea = styled.header`
     margin: auto;
     height: 100%;
     display: flex;
+
+    .menu--background {
+      display: none;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 75px;
+      left: 0;
+      z-index: 1;
+      background-color: rgba(0, 0, 0, 0.5);
+
+      @media(max-width: 768px) {
+          display: ${props => props.displayHamburgerMenu};
+      };
+    };
 
     .hamburger--menu {
       display: none;
@@ -78,17 +103,21 @@ export const HeaderArea = styled.header`
         list-style: none;
       };
 
+      .menu--goingOut {
+        animation: ${fromRight} 0.3s ease-in-out 0s;
+      };
+
       ul {
         display: flex;
 
         @media(max-width: 768px) {
           display: ${props => props.displayHamburgerMenu};
           position: absolute;
-          bottom: 0;
+          top: 75px;
           left: 0;
           flex-flow: column;
           border-top: 2px solid #B64FC8;
-          height: calc(100% - 75px);
+          height: 100%;
           background-color: #1F1F1F;
           min-width: 70%;
           box-shadow: 0 2px 4px rgb(0 0 0 / 50%);

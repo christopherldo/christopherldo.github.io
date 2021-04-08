@@ -7,23 +7,40 @@ const Component = () => {
 
   const [path, setPath] = useState('');
   const [displayHamburgerMenu, setDisplayHamburgerMenu] = useState('none');
+  const [responsiveMenuGoingOut, setResponsiveMenuGoingOut] = useState(false);
 
   useEffect(() => {
     setPath(location.pathname);
-    setDisplayHamburgerMenu('none');
+    setResponsiveMenuGoingOut(true);
+      setTimeout(() => {
+        setDisplayHamburgerMenu('none');
+      }, 290);
   }, [location]);
 
   const handleToggleHamburger = () => {
     if (displayHamburgerMenu === 'none') {
+      setResponsiveMenuGoingOut(false);
       setDisplayHamburgerMenu('flex');
     } else {
-      setDisplayHamburgerMenu('none');
+      setResponsiveMenuGoingOut(true);
+      setTimeout(() => {
+        setDisplayHamburgerMenu('none');
+      }, 290);
     };
   };
 
+  const menus = [
+    { path: '/', name: 'Home' },
+    { path: '/sobre', name: 'Sobre' },
+    { path: '/portfolio', name: 'Portfólio' },
+    { path: '/tecnologias', name: 'Tecnologias' },
+    { path: '/contato', name: 'Contato' },
+  ];
+
   return (
-    <HeaderArea displayHamburgerMenu={displayHamburgerMenu}>
+    <HeaderArea display={displayHamburgerMenu}>
       <div className="container">
+        <div className="menu--background" onClick={handleToggleHamburger}></div>
         <div className="hamburger--menu" onClick={handleToggleHamburger}>
           <div className="row"></div>
           <div className="row"></div>
@@ -31,32 +48,16 @@ const Component = () => {
         </div>
         <nav>
           <Link to="/">Christopher</Link>
-          <ul>
-            <li>
-              <Link to="/" className={path === '/' ? 'active' : undefined}>
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link to="/sobre" className={path === '/sobre' ? 'active' : undefined}>
-                Sobre
-              </Link>
-            </li>
-            <li>
-              <Link to="/portfolio" className={path === '/portfolio' ? 'active' : undefined}>
-                Portfolio
-              </Link>
-            </li>
-            <li>
-              <Link to="/tecnologias" className={path === '/tecnologias' ? 'active' : undefined}>
-                Tecnologias
-              </Link>
-            </li>
-            <li>
-              <Link to="/contato" className={path === '/contato' ? 'active' : undefined}>
-                Contato
-              </Link>
-            </li>
+          <ul className={responsiveMenuGoingOut ? 'menu--goingOut' : undefined}>
+            {menus.map((item, key) => (
+              <li key={key}>
+                <Link
+                  to={item.path}
+                  className={path === item.path ? 'active' : undefined}>
+                  {item.name}
+                </Link>
+              </li>
+            ))}
             <li>
               <a
                 href="https://drive.google.com/file/d/1k1EUQZoMKa3GolKXKMvIFa72ht3hVc74/view?usp=sharing"
