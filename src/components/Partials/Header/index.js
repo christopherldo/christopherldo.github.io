@@ -38,7 +38,7 @@ const Component = () => {
   ];
 
   return (
-    <HeaderArea display={displayHamburgerMenu}>
+    <HeaderArea displayHamburgerMenu={displayHamburgerMenu}>
       <div className="container">
         <div className="menu--background" onClick={handleToggleHamburger}></div>
         <div className="hamburger--menu" onClick={handleToggleHamburger}>
