@@ -173,6 +173,10 @@ export const PageArea = styled.main`
         color: #03DAC6;
         border-color: #03DAC6;
       };
+
+      @media(max-width: 768px) {
+        right: 0px;
+      };
     };
   };
 `;

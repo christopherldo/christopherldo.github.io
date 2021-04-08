@@ -43,10 +43,10 @@ export const PageArea = styled.main`
 
     .previous {
       left: 50px;
-    };
 
-    .next {
-      right: 50px;
+      @media(max-width: 768px) {
+        left: 0px;
+      };
     };
   };
 `;
