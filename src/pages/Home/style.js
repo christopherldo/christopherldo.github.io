@@ -132,21 +132,30 @@ export const PageArea = styled.main`
       padding-top: 20px;
       padding-left: 2px;
 
+      > div {
+        display: inline-flex;
+        margin-right: 15px;
+
+        @media(max-width: 768px) {
+          margin-top: 10px;
+        };
+      };
+
       @media(max-width: 768px) {
         flex-flow: column;
         align-items: flex-end
       };
 
+      a {
+        width: 30px;
+        height: 30px;
+      };
+
       svg {
-        margin-right: 15px;
         width: 30px;
         height: 30px;
         fill: #fff;
         transition: all 0.2s ease-in-out 0s;
-
-        @media(max-width: 768px) {
-          margin-top: 10px;
-        };
 
         &:hover {
           fill: #EA80FC;

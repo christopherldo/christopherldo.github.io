@@ -124,6 +124,7 @@ const Page = () => {
               <a href="https://github.com/christopherldo/"
                 target="_blank"
                 rel="noreferrer"
+                aria-label="Github"
               >
                 <FaGithub />
               </a>
@@ -132,14 +133,16 @@ const Page = () => {
               <a href="https://www.linkedin.com/in/christopher-de-oliveira/"
                 target="_blank"
                 rel="noreferrer"
+                aria-label="LinkedIn"
               >
                 <FaLinkedin />
               </a>
             </div>
-            <div className="intagram">
+            <div className="instagram">
               <a href="https://www.instagram.com/ldochristopher"
                 target="_blank"
                 rel="noreferrer"
+                aria-label="Instagram"
               >
                 <FaInstagram />
               </a>
@@ -148,6 +151,7 @@ const Page = () => {
               <a href="https://www.twitch.tv/christopherldo/"
                 target="_blank"
                 rel="noreferrer"
+                aria-label="Twitch"
               >
                 <FaTwitch />
               </a>
