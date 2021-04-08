@@ -78,6 +78,14 @@ const Page = () => {
     history.push('/sobre');
   };
 
+  const handleScrollOnContent = event => {
+    const scrollNumber = event.deltaY;
+
+    if(scrollNumber > 0) {
+      handleNextPage();
+    };
+  };
+
   return (
     <PageArea
       introOpacity={opacityIntro}
@@ -92,7 +100,7 @@ const Page = () => {
         </div>
         :
         <>
-        <div className="page--content">
+        <div className="page--content" onWheel={handleScrollOnContent}>
           <div className="name">
             <h1>Christopher Leonardo</h1>
             <h2>Web Developer</h2>

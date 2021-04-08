@@ -162,14 +162,15 @@ export const PageArea = styled.main`
       position: absolute;
       top: 50%;
       right: 50px;
-      color: #03DAC6;
       font-size: 14px;
       cursor: pointer;
       font-style: italic;
-      border-bottom: 1px solid transparent;
+      color: #fff;
+      border-bottom: 1px solid #fff;
       transition: all 0.2s ease-in-out 0s;
 
       &:hover {
+        color: #03DAC6;
         border-color: #03DAC6;
       };
     };
