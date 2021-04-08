@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Cookies from 'js-cookie';
 import {useHistory} from 'react-router-dom';
 import { FaGithub, FaLinkedin, FaInstagram, FaTwitch } from 'react-icons/fa';
+import { useSwipeable } from 'react-swipeable';
 import { PageArea } from './style';
 
 export const introNotViewed = () => {
@@ -86,6 +87,12 @@ const Page = () => {
     };
   };
 
+  const handlersSwipe = useSwipeable({
+    onSwipedLeft: () => handleNextPage(),
+    preventDefaultTouchmoveEvent: true,
+    trackMouse: true
+  });
+
   return (
     <PageArea
       introOpacity={opacityIntro}
@@ -100,7 +107,11 @@ const Page = () => {
         </div>
         :
         <>
-        <div className="page--content" onWheel={handleScrollOnContent}>
+        <div
+          className="page--content"
+          onWheel={handleScrollOnContent}
+          {...handlersSwipe}
+        >
           <div className="name">
             <h1>Christopher Leonardo</h1>
             <h2>Web Developer</h2>

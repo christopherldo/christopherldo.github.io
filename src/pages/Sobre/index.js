@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom';
+import {useSwipeable} from 'react-swipeable';
 import { PageArea } from './style';
 
 const Page = () => {
@@ -35,9 +36,20 @@ const Page = () => {
     };
   };
 
+  const handlersSwipe = useSwipeable({
+    onSwipedRight: () => handlePreviousPage(),
+    onSwipedLeft: () => handleNextPage(),
+    preventDefaultTouchmoveEvent: true,
+    trackMouse: true
+  });
+
   return (
     <PageArea contentOpacity={opacityContent}>
-      <div className="page--content" onWheel={handleScrollOnContent}>
+      <div
+        className="page--content"
+        onWheel={handleScrollOnContent}
+        {...handlersSwipe}
+      >
         <h1>Página SOBRE</h1>
       </div>
       <div className="target--arrows">
