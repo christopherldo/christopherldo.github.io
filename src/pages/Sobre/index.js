@@ -60,11 +60,12 @@ const Page = () => {
         <div className="about">
           <div className="about-txt">
             <p>
-              Since beginning my journey as a freelance designer nearly 10 years ago,
-              I've done remote work for agencies, consulted for startups,
-              and collaborated with talented people to create digital products for
-              both business and consumer use. I'm quietly confident, naturally curious,
-              and perpetually working on improving my chops one design problem at a time.
+              Desde pequeno apaixonado por tecnologia. Considerado nerd por muitos amigos,
+              sempre me interessei pela área da programação, e tive facilidade para mexer
+              em computadores. Me descobri na área do desenvolvimento por volta de 2013,
+              quando começou a febre do HTML5 e CSS3, mas não sabia programar. Até mesmo
+              cheguei a odiar JavaScript. Hoje sou programador para a web e arranho também
+              no mundo mobile.
             </p>
           </div>
         </div>
