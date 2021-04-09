@@ -7,6 +7,10 @@ export const PageArea = styled.main`
   margin: auto;
   overflow: hidden;
 
+  @media(max-width: 1000px) {
+    overflow-y: auto;
+  };
+
   .page--content {
     width: 100%;
     height: 100%;

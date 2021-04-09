@@ -14,7 +14,10 @@ export const PageArea = styled.main`
   width: 100%;
   height: calc(100vh - 75px);
   margin: auto;
-  overflow: hidden;
+  
+  @media(max-width: 1000px) {
+    overflow-y: auto;
+  };
 
   .starting--messages {
     height: 100%;

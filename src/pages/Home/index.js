@@ -90,7 +90,6 @@ const Page = () => {
   const handlersSwipe = useSwipeable({
     onSwipedLeft: () => handleNextPage(),
     preventDefaultTouchmoveEvent: true,
-    trackMouse: true
   });
 
   return (

@@ -40,7 +40,6 @@ const Page = () => {
     onSwipedRight: () => handlePreviousPage(),
     onSwipedLeft: () => handleNextPage(),
     preventDefaultTouchmoveEvent: true,
-    trackMouse: true
   });
 
   return (
