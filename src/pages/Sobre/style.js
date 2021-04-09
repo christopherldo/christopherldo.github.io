@@ -86,10 +86,10 @@ export const PageArea = styled.main`
         h1 {
           padding-top: 20px;
           width: 90%;
-          background-color: #3700b3;
+          background-color: #B64FC8;
           border-top-left-radius: 50px;
           border-top-right-radius: 50px;
-          color: #fff;
+          color: #000;
           font-weight: bold;
           text-align: center;
 
@@ -145,12 +145,12 @@ export const PageArea = styled.main`
 
       p {
         display: inline;
-        background-color: #FF4181;
+        background-color: #3700b3;
         margin-bottom: auto;
         padding: 5px 0;
         line-height: 2.5em;
         font-size: 20px;
-        color: #000;  
+        color: #fff;  
 
         @media(max-width: 1100px) {
           line-height: 2em;
