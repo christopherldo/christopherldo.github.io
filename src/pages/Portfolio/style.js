@@ -28,6 +28,7 @@ export const PageArea = styled.main `
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, 1fr);
+    align-items: center;
     opacity: ${props => props.contentOpacity};
     transition: all 0.5s ease-in-out 0s;
     color: #fff;
