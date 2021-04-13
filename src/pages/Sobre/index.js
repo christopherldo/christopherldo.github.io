@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useHistory } from 'react-router-dom';
-import {useSwipeable} from 'react-swipeable';
+import { useSwipeable } from 'react-swipeable';
 import { PageArea } from './style';
 
 const Page = () => {
   const history = useHistory();
+  const contentRef = useRef(null);
 
   const [opacityContent, setOpacityContent] = useState(0);
 
@@ -30,9 +31,13 @@ const Page = () => {
     const scrollNumber = event.deltaY;
 
     if (scrollNumber > 0) {
-      handleNextPage();
+      if (window.innerHeight + contentRef.current.scrollTop - contentRef.current.scrollHeight === 75) {
+        handleNextPage();
+      };
     } else {
-      handlePreviousPage();
+      if (contentRef.current.scrollTop === 0) {
+        handlePreviousPage();
+      };
     };
   };
 
@@ -43,15 +48,14 @@ const Page = () => {
   });
 
   return (
-    <PageArea contentOpacity={opacityContent}>
-      <div
-        className="page--content"
-        onWheel={handleScrollOnContent}
-        {...handlersSwipe}
-      >
+    <PageArea contentOpacity={opacityContent}
+      onWheel={handleScrollOnContent}
+      ref={contentRef}
+    >
+      <div className="page--content" {...handlersSwipe}>
         <div className="me">
           <div className="img">
-            <img src="./images/profile_pic.jpg" alt="Perfil"/>
+            <img src="./images/profile_pic.jpg" alt="Perfil" />
           </div>
           <div className="title">
             <h1>Sobre</h1>

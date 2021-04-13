@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useHistory } from 'react-router-dom';
 import {useSwipeable} from 'react-swipeable';
 import { PageArea } from './style';
 
 const Page = () => {
   const history = useHistory();
+  const contentRef = useRef(null);
 
   const [opacityContent, setOpacityContent] = useState(0);
 
@@ -24,7 +25,9 @@ const Page = () => {
     const scrollNumber = event.deltaY;
 
     if (scrollNumber < 0) {
-      handlePreviousPage();
+      if (contentRef.current.scrollTop === 0) {
+        handlePreviousPage();
+      };
     };
   };
 
@@ -35,10 +38,13 @@ const Page = () => {
   });
 
   return (
-    <PageArea contentOpacity={opacityContent}>
+    <PageArea
+      contentOpacity={opacityContent}
+      onWheel={handleScrollOnContent}
+      ref={contentRef}
+    >
       <div
         className="page--content"
-        onWheel={handleScrollOnContent}
         {...handlersSwipe}
       >
         <h1>Página CONTATO</h1>

@@ -86,10 +86,10 @@ export const PageArea = styled.main`
         h1 {
           padding-top: 20px;
           width: 90%;
-          background-color: #B64FC8;
+          background-color: #777;
           border-top-left-radius: 50px;
           border-top-right-radius: 50px;
-          color: #000;
+          color: #fff;
           font-weight: bold;
           text-align: center;
 
@@ -145,7 +145,7 @@ export const PageArea = styled.main`
 
       p {
         display: inline;
-        background-color: #3700b3;
+        background-color: #372265;
         margin-bottom: auto;
         padding: 5px 0;
         line-height: 2.5em;

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Cookies from 'js-cookie';
-import {useHistory} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { FaGithub, FaLinkedin, FaInstagram, FaTwitch } from 'react-icons/fa';
 import { useSwipeable } from 'react-swipeable';
 import { PageArea } from './style';
@@ -12,6 +12,7 @@ export const introNotViewed = () => {
 
 const Page = () => {
   const history = useHistory();
+  const contentRef = useRef(null);
 
   const [showIntro, setShowIntro] = useState(introNotViewed());
   const [messageIntro, setMessageIntro] = useState('');
@@ -72,7 +73,7 @@ const Page = () => {
     setIntroCookie();
     return;
   };
-  
+
   const handleNextPage = async () => {
     setOpacityContent(0);
     await delay(600);
@@ -81,9 +82,11 @@ const Page = () => {
 
   const handleScrollOnContent = event => {
     const scrollNumber = event.deltaY;
-
-    if(scrollNumber > 0) {
-      handleNextPage();
+    
+    if (scrollNumber > 0) {
+      if (window.innerHeight + contentRef.current.scrollTop - contentRef.current.scrollHeight === 75) {
+        handleNextPage();
+      };
     };
   };
 
@@ -96,6 +99,8 @@ const Page = () => {
     <PageArea
       introOpacity={opacityIntro}
       contentOpacity={opacityContent}
+      onWheel={handleScrollOnContent}
+      ref={contentRef}
     >
       {showIntro ?
         <div className="starting--messages">
@@ -106,62 +111,58 @@ const Page = () => {
         </div>
         :
         <>
-        <div
-          className="page--content"
-          onWheel={handleScrollOnContent}
-          {...handlersSwipe}
-        >
-          <div className="name">
-            <h1>Christopher Leonardo</h1>
-            <h2>Web Developer</h2>
-          </div>
-          <div className="image">
+          <div className="page--content" {...handlersSwipe}>
+            <div className="name">
+              <h1>Christopher Leonardo</h1>
+              <h2>Web Developer</h2>
+            </div>
+            <div className="image">
 
+            </div>
+            <div className="socials">
+              <div className="github">
+                <a href="https://github.com/christopherldo/"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Github"
+                >
+                  <FaGithub />
+                </a>
+              </div>
+              <div className="linkedin">
+                <a href="https://www.linkedin.com/in/christopher-de-oliveira/"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="LinkedIn"
+                >
+                  <FaLinkedin />
+                </a>
+              </div>
+              <div className="instagram">
+                <a href="https://www.instagram.com/ldochristopher"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Instagram"
+                >
+                  <FaInstagram />
+                </a>
+              </div>
+              <div className="twitch">
+                <a href="https://www.twitch.tv/christopherldo/"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Twitch"
+                >
+                  <FaTwitch />
+                </a>
+              </div>
+            </div>
           </div>
-          <div className="socials">
-            <div className="github">
-              <a href="https://github.com/christopherldo/"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Github"
-              >
-                <FaGithub />
-              </a>
-            </div>
-            <div className="linkedin">
-              <a href="https://www.linkedin.com/in/christopher-de-oliveira/"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="LinkedIn"
-              >
-                <FaLinkedin />
-              </a>
-            </div>
-            <div className="instagram">
-              <a href="https://www.instagram.com/ldochristopher"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Instagram"
-              >
-                <FaInstagram />
-              </a>
-            </div>
-            <div className="twitch">
-              <a href="https://www.twitch.tv/christopherldo/"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Twitch"
-              >
-                <FaTwitch />
-              </a>
-            </div>
+          <div className="target--arrows">
+            <div className="next" onClick={handleNextPage}>
+              Sobre -&gt;
           </div>
-        </div>
-        <div className="target--arrows">
-          <div className="next" onClick={handleNextPage}>
-            Sobre -&gt;
           </div>
-        </div>
         </>
       }
     </PageArea>
