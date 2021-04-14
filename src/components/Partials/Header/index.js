@@ -32,7 +32,7 @@ const Component = () => {
   const menus = [
     { path: '/', name: 'Home' },
     { path: '/sobre', name: 'Sobre' },
-    { path: '/portfolio', name: 'Portfólio' },
+    { path: '/projetos', name: 'Projetos' },
     { path: '/tecnologias', name: 'Tecnologias' },
     { path: '/contato', name: 'Contato' },
   ];

@@ -86,6 +86,7 @@ export const PageArea = styled.main `
         border-radius: 5px;
         text-transform: uppercase;
         font-size: 14px;
+        font-weight: bold;
       };
 
       .desc {
@@ -95,13 +96,20 @@ export const PageArea = styled.main `
       };
 
       .bottom {
+        font-weight: bold;
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
         align-items: center;
 
-        svg {
+        .stars {
+          font-weight: normal;
+          display: flex;
+          align-items: center;
+
+          svg {
           fill: #f1f13d;
           margin-left: 5px;
+          };
         };
       };
     };

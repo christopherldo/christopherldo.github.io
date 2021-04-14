@@ -21,7 +21,8 @@ const Page = () => {
       setLoading(false);
     };
     setOpacityContent(1);
-    getRepos();
+    
+    setTimeout(getRepos, 1000);
   }, []);
 
   const fakeMap = [1, 2, 3, 4, 5, 6, 7, 8];
@@ -83,8 +84,13 @@ const Page = () => {
                 {item.description}
               </div>
               <div className="bottom">
-                {item.stargazers_count}
-                <AiOutlineStar />
+                <div className="language">
+                  {item.language}
+                </div>
+                <div className="stars">
+                  {item.stargazers_count}
+                  <AiOutlineStar />
+                </div>
               </div>
             </a>
           ))

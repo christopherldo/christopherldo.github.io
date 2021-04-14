@@ -18,7 +18,7 @@ const Page = () => {
   const handleNextPage = async () => {
     setOpacityContent(0);
     await delay(600);
-    history.push('/portfolio');
+    history.push('/projetos');
   };
 
   const handlePreviousPage = async () => {
@@ -79,7 +79,7 @@ const Page = () => {
           &lt;- Home
         </div>
         <div className="next" onClick={handleNextPage}>
-          Portfólio -&gt;
+          Projetos -&gt;
         </div>
       </div>
     </PageArea>

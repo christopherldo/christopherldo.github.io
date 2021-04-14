@@ -24,7 +24,7 @@ const Page = () => {
   const handlePreviousPage = async () => {
     setOpacityContent(0);
     await delay(600);
-    history.push('/portfolio');
+    history.push('/projetos');
   };
 
   const handleScrollOnContent = event => {
@@ -53,15 +53,12 @@ const Page = () => {
       onWheel={handleScrollOnContent}
       ref={contentRef}
     >
-      <div
-        className="page--content"
-        {...handlersSwipe}
-      >
+      <div className="page--content" {...handlersSwipe}>
         <h1>Página TECNOLOGIAS</h1>
       </div>
       <div className="target--arrows">
         <div className="previous" onClick={handlePreviousPage}>
-          &lt;- Portfólio
+          &lt;- Projetos
         </div>
         <div className="next" onClick={handleNextPage}>
           Contato -&gt;

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom';
 
-import { Home, Sobre, Portfolio, Tecnologias, Contato, NotFound } from './pages';
+import { Home, Sobre, Projetos, Tecnologias, Contato, NotFound } from './pages';
 
 const Routes = () => {
   return (
@@ -14,8 +14,8 @@ const Routes = () => {
         <Sobre />
       </Route>
 
-      <Route exact path="/portfolio">
-        <Portfolio />
+      <Route exact path="/projetos">
+        <Projetos />
       </Route>
 
       <Route exact path="/tecnologias">
