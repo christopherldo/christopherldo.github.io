@@ -22,7 +22,7 @@ const Page = () => {
     };
     setOpacityContent(1);
     
-    setTimeout(getRepos, 1000);
+    setTimeout(getRepos, 500);
   }, []);
 
   const fakeMap = [1, 2, 3, 4, 5, 6, 7, 8];

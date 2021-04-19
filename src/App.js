@@ -1,17 +1,17 @@
 import React from 'react'
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { Template, Header, Footer } from './components';
 import Routes from './Routes';
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Template>
         <Header />
         <Routes />
         <Footer />
       </Template>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
