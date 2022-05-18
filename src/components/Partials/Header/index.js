@@ -29,6 +29,12 @@ const Component = () => {
     };
   };
 
+  const handleClickOnResumeButton = (e) => {
+    e.preventDefault();
+
+    window.open('/pdfs/resume.pdf', '_blank');
+  };
+
   const menus = [
     { path: '/', name: 'Home' },
     { path: '/sobre', name: 'Sobre' },
@@ -59,11 +65,7 @@ const Component = () => {
               </li>
             ))}
             <li>
-              <a
-                href="https://drive.google.com/file/d/1k1EUQZoMKa3GolKXKMvIFa72ht3hVc74/view?usp=sharing"
-                target="_blank"
-                rel="noreferrer"
-              >
+              <a href="/" onClick={handleClickOnResumeButton}>
                 Currículo
               </a>
             </li>
